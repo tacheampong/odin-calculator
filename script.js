@@ -1,3 +1,8 @@
+
+var operator = "";
+var n1 = 0;
+var n2 = 0;
+
 // Add
 function add(num1, num2){
     return num1 + num2;
@@ -19,3 +24,6 @@ function divide(num1, num2){
 }
 
 // Operate
+function operate(operator, num1, num2){
+    return operator(num1, num2)
+}
