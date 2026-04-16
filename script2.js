@@ -1,18 +1,20 @@
 function createCalculator() {
-  var outerBox = document.createElement("div");
-  outerBox.className = "calculator";
-  return outerBox;
+  var digits = createDigits();
+  var operators = createOperators();
+
+  var buttonContainer = document.querySelector(".button-container");
+  var screen = document.querySelector(".screen")
+  screen.innerText = ""
+  buttonContainer.append(digits);
+  buttonContainer.append(operators);
 }
-function createScreen() {
-  var screen = document.createElement("div");
-  screen.className = "screen";
-  return screen;
-}
+
 function createButton() {
   var button = document.createElement("div");
+  var screen = document.querySelector(".screen")
   button.className = "button";
   button.addEventListener("click", (event) => {
-     handleUpdates(screen, event)
+     handleUpdates(screen, event.target)
   })
   return button;
 }
@@ -42,32 +44,13 @@ function createOperators() {
   });
   return container;
 }
+
 // when the event listeners is activated 
 // handle updates is called the screen updates with
-// the text of the current button
 function handleUpdates(screen,button){
     screen.innerText = screen.innerText + button.innerText
 }
-//TODO: clean up/abstract the containers
-//TODO: move styling to css file
-//TODO: FIX so that screen is in the dom and the button can access it
+
 window.addEventListener("load", () => {
-  var calculator = createCalculator();
-  var screen = createScreen();
-  var digits = createDigits();
-  var operators = createOperators();
-
-  var innerContainer = document.createElement("div");
-  var buttonContainer = document.createElement("div");
-  buttonContainer.className = "button-container"
-  innerContainer.className = "inner-container"
-  buttonContainer.append(digits);
-  buttonContainer.append(operators);
-  innerContainer.append(screen);
-  innerContainer.append(buttonContainer);
-
-  calculator.append(innerContainer);
-  document.body.append(calculator);
-
-
+    createCalculator();
 });
