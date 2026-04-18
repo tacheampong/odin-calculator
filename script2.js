@@ -67,12 +67,7 @@ function createDigits() {
 
   return container;
 }
-function assign(button, screen){
-    var currentText = screen.innerText
-    var op = button.innerText
-    var match = currentText.match(/^(\d+)\s*([+\-*/])\s*(\d+)\s*=?$/)
 
-}
 function createOperators() {
   var container = document.createElement("div");
   var operators = ["+", "-", "*", "/", "="];
