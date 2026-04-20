@@ -10,6 +10,14 @@ h1 {
 }
 .button:hover{
     cursor: pointer;
+    background-color: grey;
+}
+.operators-container .button{
+    background-color:  orange;
+    font-weight: bold;
+}
+.operators-container .button:hover {
+    background-color: grey;
 }
 .calculator {
     width: 300px;
