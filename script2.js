@@ -52,6 +52,14 @@ function createDigits() {
             console.log("n1", n1)
             return button
         }
+        if (operator == "="){
+            n1 = n1 + digit
+            screen.innerText = ""
+            handleUpdates(screen, n1)
+            console.log("n1", n1)
+            return button
+            
+        }
         else {
             n2 = n2 + digit
             screen.innerText = ""
@@ -75,8 +83,6 @@ function createOperators() {
   container.className = "operators-container";
   operators.forEach((op) => {
     var button = createButton();
-    button.style.backgroundColor = "orange";
-    button.style.fontWeight = "bold";
     button.innerText = `${op}`;
     button.addEventListener("click", (event) =>{
         if (op == "="){
@@ -84,6 +90,8 @@ function createOperators() {
                 n1 = operate(registry(operator), Number(n1), Number(n2))
                 screen.innerText = n1
                 n2 = ""
+                n1 = ""
+                operator = "="
                 return
             }
         }
