@@ -33,5 +33,10 @@ export function registry(operator){
 
 // Operate
 export function operate(operator, num1, num2){
-    return operator(num1, num2)
+    if (num2 == 0 & operator == "/") {
+        return NaN
+    }
+    var value = operator(num1, num2)
+    var factor = Math.pow(10, 8)
+    return Number.isInteger(value) ? value : Math.round(value * factor) / factor;
 }
